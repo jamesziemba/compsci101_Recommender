@@ -1,0 +1,36 @@
+I checked the code written in recommender by hand. For instance, I found the average ratings of the restaurants and
+similarity scores for those raters by doing simple calculation. I debugged code by writing code little by little and 
+seeing what its result was. Based on those results and comparing them to what I expected them to be, I knew whether or not
+to change what I had. 
+
+Results for different 'n's for Recommender w/ foods.txt:
+
+List of items sorted by average rating:
+[('DivinityCafe', 3.6666666666666665), ('Panda', 3.0), ('ABP', 2.5), ('Loop', 1.5), ('WaDuke', -0.3333333333333333),
+('Alpine', -1.0), ('GreatHall', -3.0)]
+
+n = 2 and person = Will:
+
+List of people whose ratings are most similar to Will:
+[('Samantha', 23), ('Tracy', 23), ('George', 3)]
+
+User might like these items:
+[('ABP', 184), ('Loop', 184), ('DivinityCafe', 138), ('Panda', 138), ('GreatHall', 0), ('Alpine', -46), ('WaDuke', -138)]
+      ^^
+   Will/Samantha & Will/Tracy have positive sim. scores and all rank
+   ABP positively, so it makes sense that this score would be high   
+
+n = 3 and person = Samantha:
+
+List of people whose ratings are most similar to Samantha:
+[('Tracy', 54), ('Will', 23), ('George', -9)]
+
+User might like these items:
+[('ABP', 284), ('Panda', 268), ('Loop', 212), ('DivinityCafe', 117), ('GreatHall', 27), ('Alpine', -162), ('WaDuke', -207)]
+																			^^
+																		George and Samantha have neg. sim score
+																		and George ranked Great Hall badly, so
+																		it is likely that Samantha will like GH	
+																		
+('WaDuke', -207)- Samantha's highest sim score was with Tracy, and they both rated WaDuke badly. Coupled with George's 
+negative sim score and positive ranking of WaDuke, WaDuke will not be likely to be highly recommended to Samantha.
